@@ -3,17 +3,20 @@
     <head>
         <title>Ubermelon Order Form</title>
     </head>
-    <body>
+    <body style="color: red; font-family: Arial">
         <h1>Order!</h1>
         <table>
             <thead>
-                <th>Prices</th>
+                <tr>
+                    <th colspan="2">Prices</th>
+                </tr>
+                <tr>
+                    <th>Melon Name</th>
+                    <th>Price per lb.</th>
+                </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Melon Name</td>
-                    <td>Price per lb.</td>
-                </tr>
+
                 <tr>
                     <td>Watermelon</td>
                     <td>$1.59</td>
@@ -38,26 +41,47 @@
         </table>
         <p>Place your orders here! You know you want to!</p>
         <form action=" https://ubermelon-order-form.herokuapp.com/process" method="GET">
+            <fieldset>
+                <legend>Personal information</legend>
             <label>First Name:
-                <input type="text" name="firstname">
+                <input type="text" name="firstname" size="30" autofocus>
             </label>
             <br>
             <label>Last Name:
                 <input type="text" name="lastname">
             </label>
             <br>
+                <label>Email:
+                    <input type="email" name="email" multiple>
+                </label>
+            <br>
+            <label>Zip Code:
+                <input type="text" name="zipcode" maxlength="5">
+            </label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Order information:</legend>
             <label>Melon Type:
                 <select name="melontype">
                     <option value="watermelon">Watermelon</option>
                     <option value="honeydew">Honeydew</option>
-                    <option value="cantaloupe">Cantaloupe</option>
+                    <option value="cantaloupe" selected>Cantaloupe</option>
                     <option value="crenshaw">Crenshaw</option>
                     <option value="canary">Canary</option>
                 </select>
             </label>
              <br>
+             <label>Preferred Melon rind color:
+                <input type="color" name="rind_color">
+            </label>
+            <br>
             <label>Quantity*:
                 <input type="number" name="quantity" min="0" max="100">
+            </label>
+            <br>
+             <label>Delivery Date:
+                <input type="date" name="date">
             </label>
             <br>
             <label>Delivery Time:
@@ -65,6 +89,11 @@
                 <input type="radio" name="time" value="pm">12:00pm-12:00am
                 <input type="radio" name="time" value="wat">Time is an illusion
             </label>
+             <br>
+            <label>Price range:
+                0<input type="range" name="price_range" min="0", max="100">100
+            </label>
+            </fieldset>
             <br>
             <label>Returning Customer?
                 <input type="radio" name="returning" value="yes">Yes
@@ -77,9 +106,23 @@
                 <input type="checkbox" name="stats" value="Hedgehog">Hedgehog
                 <input type="checkbox" name="stats" value="Balloonicorn">Balloonicorn
                 <input type="checkbox" name="stats" value="Yak">Yak
+            <br>
+            <label>Name Your Melon:
+                <input type="text" name="name" value="my favorite melon" readonly>
             </label>
             <br>
-            <input type="submit">         
+            <label>Are you fabulous?
+                <input type="radio" name="fabulous" value="yes">Absolutly!
+                <input type="radio" name="fabulous" value="sure">Heck yeah!
+            </label>
+            <br>
+            <label>Write a message to your delivery person:<br>
+                <textarea name="message" rows="10" cols="30">Type your message here!
+                </textarea>
+            </label>
+            <br>
+            <input type="image" src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/uh59Wh0/water-melon-cartoon-illustration-hand-drawn-animation-transparent_ejc1cc4__S0003.jpg" alt="Submit" width="100">
+            <p style="font-size: 10px">Click the melon to submit your order!</p>
         </form>
     </body>
     <footer>
